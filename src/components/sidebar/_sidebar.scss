@@ -1,0 +1,67 @@
+@import '../../sass/base.scss';
+
+.sidebar {
+    width: 260px;
+    height: 90vh;
+    background-color: #212121;
+    padding-top: 1rem;
+    transition: transform 0.2s ease-in;
+    display: flex;
+    flex-direction: column;
+    li{
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        padding: 0.6rem 1.5rem;
+        margin: 0.2rem 0;
+
+        &:hover{
+            background-color: $border-color ;
+        }
+
+        span {
+            margin-left: 1rem;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.6px;
+         }
+    }
+    &.open {
+        // transform: translateX(-100%);
+        width: 90px;
+        span{
+            display: none;
+        }
+        li{
+            justify-content: center;
+        }
+     }
+}
+
+@media (max-width: $br-md) {
+    .sidebar{
+        width: 90px;
+        transform: translateX(0%);
+        z-index: 999;
+        position: fixed;
+        span{
+            display: none;
+        }
+        li{
+            justify-content: center;
+        }
+        &.open{
+            transform: translateX(-100%);
+        }
+    }
+}
+@media (max-width: $br-sm) {
+    .sidebar{
+        transform: translateX(0%);
+        z-index: 999;
+        position: fixed;
+        &.open{
+            transform: translateX(-100%);
+        }
+    }
+}

@@ -1,0 +1,94 @@
+@import '../../sass/base.scss';
+
+.header{
+    height: 10vh;
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #212121;
+
+    &__logo{
+        object-fit: contain;
+        display: block;
+        width: 29px;
+        height: 29px;
+        margin: 0 0 0 22px;
+    }
+    &__icons{
+        .avatar{
+        width: 35px;
+        height: 35px;
+        }
+    }
+    &__menu{
+        // display: none;
+        cursor: pointer;
+    }
+
+    &__logos{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 0.07 1;
+    }
+
+    form{
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0.6;
+
+        input{
+            width: 100%;
+            background: hsl(0, 0%, 7%);
+            color: $text-color;
+            border: 1px solid hsl(0, 0%, 18.82%);
+            padding: 0.5rem;
+            font-weight: 500;
+            &:focus{
+                outline: 1px solid #065fd4;
+            }
+        }
+        button{
+            padding: 8px 1.25rem;
+            border: none;
+            color: #fff;
+            background-color: hsla(0, 0%, 100%, 0.08);
+            cursor: pointer;
+        }
+        
+    }
+    &__icons {
+        flex: 0.15;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        img {
+           border-radius: 50%;
+           width: 40px;
+           object-fit: contain;
+           margin-left: 5px;
+        }
+     }
+}
+
+@media (max-width: $br-sm){
+    .header{
+        padding: 1rem;
+        form{
+            flex: 1;
+        }
+        &__logo{
+            display: none;
+        }
+        &__logos{
+            margin: 0 20px;
+        }
+        &__icons > *:not(img){
+            display: none;
+        }
+
+    }
+}
