@@ -9,7 +9,8 @@ export const userLogin = () => async (dispatch) => {
 
     const provider = new firebase.auth.GoogleAuthProvider();
     const res = await auth.signInWithPopup(provider);
-    console.log(res);
+    // console.log(res);
+    sessionStorage.setItem("ytb_at", JSON.stringify(res));
 
     const LOGIN = {
       type: "LOGIN_SUCCESS",
@@ -24,5 +25,15 @@ export const userLogin = () => async (dispatch) => {
       payload: error.message,
     });
     alert("FAIL!");
+  }
+};
+export const userLogout = () => async (dispatch) => {
+  try {
+    dispatch({
+      type: "LOGOUT",
+    });
+  } catch (error) {
+    console.log(error.message);
+    alert("ERROR!");
   }
 };

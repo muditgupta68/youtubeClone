@@ -46,10 +46,10 @@ function App() {
   return (
     <div className="App">
       <Switch>
-        <Route path="/login">
+        <Route path="/login" exact>
           <Login />
         </Route>
-        <Route path="/" exact>
+        <Route path="/">
           <Layout data={<Homescreen />} />
         </Route>
         <Route>

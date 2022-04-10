@@ -8,8 +8,19 @@ import {
   MdLibraryBooks,
   MdHome,
 } from "react-icons/md";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { userLogout } from "../../redux/actions/authAction";
 
 const Sidebar = ({ toggle, Sidebar }) => {
+  const dispatch = useDispatch();
+  const navigate = useHistory();
+
+  const handleLogout = () => {
+    dispatch(userLogout());
+    navigate.push("/login");
+  };
+
   return (
     <div>
       <nav className={Sidebar ? "sidebar open" : "sidebar"}>
@@ -39,7 +50,7 @@ const Sidebar = ({ toggle, Sidebar }) => {
 
         <hr />
 
-        <li>
+        <li onClick={handleLogout}>
           <MdExitToApp size={23} />
           <span>Log Out</span>
         </li>

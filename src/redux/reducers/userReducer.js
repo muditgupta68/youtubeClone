@@ -1,5 +1,7 @@
 const initial = {
-  login: [],
+  login: sessionStorage.getItem("ytb_at")
+    ? JSON.parse(sessionStorage.getItem("ytb_at"))
+    : null,
   error: [],
   loading: true,
 };
@@ -8,6 +10,9 @@ const userReducer = (state = initial, action) => {
   switch (action.type) {
     case "LOGIN_SUCCESS":
       return { ...state, login: action.payload, loading: false };
+    case "LOGOUT":
+      sessionStorage.removeItem("ytb_at");
+      return { ...state, login: null, loading: false };
     case "LOGIN_REQUEST":
       return { ...state, loading: false };
     case "LOGIN_FAIL":
