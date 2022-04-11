@@ -2,7 +2,7 @@ const initial = {
   login: sessionStorage.getItem("ytb_at")
     ? JSON.parse(sessionStorage.getItem("ytb_at"))
     : null,
-  error: [],
+  error: null,
   loading: true,
 };
 

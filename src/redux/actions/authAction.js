@@ -8,6 +8,7 @@ export const userLogin = () => async (dispatch) => {
     });
 
     const provider = new firebase.auth.GoogleAuthProvider();
+    provider.addScope("https://www.googleapis.com/auth/youtube.force-ssl");
     const res = await auth.signInWithPopup(provider);
     // console.log(res);
     sessionStorage.setItem("ytb_at", JSON.stringify(res));

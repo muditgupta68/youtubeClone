@@ -27,8 +27,13 @@
 &__title {
     margin-bottom: 0.1rem;
     color: #fff;
-    // @include line-clamp(1);
-    -webkit-line-clamp: 1;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 0;
+    word-wrap:break-word;
+    white-space: break-spaces;
+    max-height: 45px;
+    line-clamp: 0;
     overflow: hidden;
  }
  &__details {
